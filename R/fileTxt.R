@@ -100,8 +100,20 @@ ddi_fileTxt <- function(...) {
   }
 
   allowed_children <- c(
-      "fileName", "fileCitation", "dataFingerprint", "fileCont", "fileStrc", "dimensns", "fileType",
-      "format", "filePlac", "dataChck", "ProcStat", "dataMsng", "software", "verStmt"
+      "fileName", 
+      "fileCitation", 
+      "dataFingerprint", 
+      "fileCont", 
+      "fileStrc", 
+      "dimensns", 
+      "fileType",
+      "format", 
+      "filePlac", 
+      "dataChck", 
+      "ProcStat", 
+      "dataMsng", 
+      "software", 
+      "verStmt"
   )
 
   if(check_cardinality(components$content, "fileCitation") > 1) rddi_err("Only 0 or 1 fileCitation children are allowed in fileTxt")
@@ -386,7 +398,7 @@ ddi_digitalFingerprintValue <- function(...) {
 #' 
 #' `dimensns` is contained in `fileTxt`. `recDimensn` is contained in `recGrp`.
 #' 
-#' \emph{dimnsns and recDimnsn shared nodes}
+#' \emph{dimensns and recDimnsn shared nodes}
 #' 
 #' * `ddi_caseQnty()` is the number of cases, observations, or records.
 #' 
@@ -395,7 +407,7 @@ ddi_digitalFingerprintValue <- function(...) {
 #' 
 #' * `ddi_varQnty()` is the overall variable count.
 #' 
-#' \emph{dimnsns specific nodes}
+#' \emph{dimensns specific nodes}
 #' 
 #' * `ddi_recNumTot()` is the overall record count in file. Particularly 
 #' helpful in instances such as files with multiple cards/decks or records per 
@@ -511,9 +523,9 @@ ddi_recDimnsn <- function(...) {
   }
   
   allowed_children <- c(
+    "varQnty",
     "caseQnty",
-    "logRecL",
-    "varQnty"
+    "logRecL"
   )
   
   if(check_cardinality(components$content, "caseQnty") > 1) rddi_err("Only 0 or 1 caseQnty children are allowed in recDimnsn")
@@ -669,9 +681,9 @@ ddi_recGrp <- function(...) {
   }
 
   allowed_children <- c(
-      "recDimnsn",
-      "labl"
-      )
+    "labl",
+    "recDimnsn"
+    )
 
   if(check_cardinality(components$content, "recDimnsn") > 1) rddi_err("Only 0 or 1 recDimnsn children are allowed in recGrp")
 

@@ -346,11 +346,11 @@ ddi_collMode <- function(...) {
       content = components$content
     )
   } else {
-    allowed_children = c("txt", "concept")
+    allowed_children = c("concept", "txt")
     build_branch_node(
       "collMode",
       content = unwrap_content(components$content),
-      attribs = components$attribs,
+      attribs = attribs,
       allowed_children = allowed_children
     )
   }
@@ -487,11 +487,11 @@ ddi_resInstru <- function(...) {
       content = components$content
     )
   } else {
-    allowed_children = c("txt", "concept")
+    allowed_children = c("concept", "txt")
     build_branch_node(
       "resInstru",
       content = unwrap_content(components$content),
-      attribs = components$attribs,
+      attribs = attribs,
       allowed_children = allowed_children
     )
   }
@@ -515,11 +515,11 @@ ddi_sampProc <- function(...) {
       content = components$content
     )
   } else {
-    allowed_children = c("txt", "concept")
+    allowed_children = c("concept", "txt")
     build_branch_node(
       "sampProc",
       content = unwrap_content(components$content),
-      attribs = components$attribs,
+      attribs = attribs,
       allowed_children = allowed_children
     )
   }
@@ -544,11 +544,11 @@ ddi_timeMeth <- function(...) {
       content = components$content
     )
   } else {
-    allowed_children = c("txt", "concept")
+    allowed_children = c("concept", "txt")
     build_branch_node(
       "timeMeth",
       content = unwrap_content(components$content),
-      attribs = components$attribs,
+      attribs = attribs,
       allowed_children = allowed_children
     )
   }
@@ -812,8 +812,8 @@ ddi_frameUnit <- function(...) {
   }
 
   allowed_children <- c(
-    "txt",
-    "unitType"
+    "unitType",
+    "txt"
   )
 
   build_branch_node(
@@ -1024,13 +1024,13 @@ ddi_sources <- function(...) {
 #' 
 #' * `ddi_respRate()` is the response rate. The percentage of sample members 
 #' who provided information. This may include a broader description of 
-#' stratified response rates, information affecting resonse rates etc.
+#' stratified response rates, information affecting response rates etc.
 #' 
 #' @param ... Child nodes or attributes.
 #' 
 #' @return A ddi_node object.
 #'
-#' @references \href{https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/anlyInfo.html}{anylInfo documentation}
+#' @references \href{https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/anlyInfo.html}{anlyInfo documentation}
 #' @references \href{https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/dataAppr.html}{dataAppr documentation}
 #' @references \href{https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/respRate.html}{respRate documentation}
 #' @references \href{https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/EstSmpErr.html}{EstSmpErr documentation}
@@ -1181,8 +1181,8 @@ ddi_codingInstructions <- function(...) {
   }
 
   allowed_children <- c(
-    "command",
-    "txt"
+    "txt",
+    "command"
   )
 
   build_branch_node(

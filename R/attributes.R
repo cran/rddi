@@ -1,4 +1,7 @@
 validate_attributes <- function(attribs, allowed_attribs, field) {
+  # remove attributes with NA values
+  attribs <- Filter(Negate(is.na), attribs) 
+  
   if("lang" %in% names(attribs)) attribs <- change_lang(attribs)
   check_attribs_in_set(names(attribs), allowed_attribs, field)
   check_attribs(attribs)
@@ -111,7 +114,7 @@ check_ncname <- function(attribs) {
     reg_expr <- "^[A-Za-z_][-._A-Za-z0-9]*$"
     idrefs <- c("wgt-var", "weight", "qstn", "files", "sdatrefs", "methrefs", 
                 "pubrefs", "access", "catgry", "catGrp", "relatedProcesses", 
-                "recGrp", "keyvar", "refs", "nCube", "nCubeGrp")
+                "recGrp", "keyvar", "refs", "nCube", "nCubeGrp", "var", "varGrp")
     for(name in names(attribs)) {
         if(any(name %in% idrefs)) {
             for(a in unlist(strsplit(attribs[[name]], " "))) {
